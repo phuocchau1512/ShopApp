@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ShopApp</string>
+    <string name="intro_image">Intro Image</string>
+    <string name="intro_title">Welcome to <font color="#39c7a5">Digital Store</font> \n
+        a <font color="#39c7a5">Gateway</font>  to Latest Teach</string>
+    <string name="start_btn_string">Let\'s Get Started</string>
+    <string name="signing_title">Already have an account?<font color="#39c7a5">Sign In</font></string>
+    <string name="expend_see_all">See All</string>
+    <string name="categories">Categories</string>
+    <string name="recommendation">Recommendation</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="show_notification">show notification</string>
+    <string name="search">search</string>
+    <string name="explorer">Explorer</string>
+    <string name="wishlist">WishList</string>
+    <string name="cart">Cart</string>
+    <string name="my_order">My Order</string>
+    <string name="profile">Profile</string>
+    <string name="back_button">Back Button</string>
+    <string name="favories_button">favories button</string>
+    <string name="project_image">project image</string>
+    <string name="rating_image">rating image</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="cart_button">cart button</string>
+</resources>
