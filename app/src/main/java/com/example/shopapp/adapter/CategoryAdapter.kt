@@ -1,6 +1,9 @@
 package com.example.shopapp.adapter
 
+import android.content.Intent
 import android.content.res.ColorStateList
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +12,7 @@ import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.shopapp.R
+import com.example.shopapp.activity.ListItemsActivity
 import com.example.shopapp.databinding.ViewholderCategoryBinding
 import com.example.shopapp.model.CategoryModel
 
@@ -76,21 +80,22 @@ class CategoryAdapter(private val items: MutableList<CategoryModel>): RecyclerVi
             )
         }
 
-    }
-
-    inner class ViewHolder(val binding: ViewholderCategoryBinding) : RecyclerView.ViewHolder(binding.root){
-        init{
-            binding.root.setOnClickListener {
-                val position = adapterPosition
-                if ( position != RecyclerView.NO_POSITION ){
-                    lastSelectedPosition = selectedPosition
-                    selectedPosition = position
-                    notifyItemChanged(lastSelectedPosition)
-                    notifyItemChanged(selectedPosition)
+        holder.binding.root.setOnClickListener {
+                lastSelectedPosition = selectedPosition
+                selectedPosition = holder.adapterPosition
+                notifyItemChanged(lastSelectedPosition)
+                notifyItemChanged(selectedPosition)
+            Handler(Looper.getMainLooper()).postDelayed({
+                val intent = Intent(holder.itemView.context,ListItemsActivity::class.java).apply {
+                    putExtra("id",item.id.toString())
+                    putExtra("title",item.title)
                 }
-            }
+                ContextCompat.startActivity(holder.itemView.context,intent,null)
+            },300)
         }
 
     }
+
+    inner class ViewHolder(val binding: ViewholderCategoryBinding) : RecyclerView.ViewHolder(binding.root)
 
 }

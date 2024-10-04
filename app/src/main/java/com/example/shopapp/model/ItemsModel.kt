@@ -4,15 +4,15 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class ItemsModel(
-    var title: String = "",
+    var categoryId: String = "",
     var description: String = "",
-    var picUrl: ArrayList<String> = ArrayList(),
     var model: ArrayList<String> = ArrayList(),
+    var picUrl: ArrayList<String> = ArrayList(),
     var price: Double = 0.0,
     var rating: Double = 0.0,
     var numberInCart: Int = 0,
-    var showRecommend: Boolean = false,
-    var categoryId: Int = 0
+    var showRecommended: Boolean = false,
+    var title: String = ""
 ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString().toString(),
@@ -23,20 +23,19 @@ data class ItemsModel(
         parcel.readDouble(),
         parcel.readInt(),
         parcel.readByte() != 0.toByte(),
-        parcel.readInt()
-    ) {
-    }
+        parcel.readString().toString()
+    )
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
-        dest.writeString(title)
+        dest.writeString(categoryId)
         dest.writeString(description)
-        dest.writeStringList(picUrl)
         dest.writeStringList(model)
+        dest.writeStringList(picUrl)
         dest.writeDouble(price)
         dest.writeDouble(rating)
         dest.writeInt(numberInCart)
-        dest.writeByte(if (showRecommend) 1 else 0)
-        dest.writeInt(categoryId)
+        dest.writeByte(if (showRecommended) 1 else 0)
+        dest.writeString(title)
     }
 
     override fun describeContents(): Int {

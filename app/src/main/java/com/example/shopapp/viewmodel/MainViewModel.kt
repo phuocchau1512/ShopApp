@@ -25,6 +25,25 @@ class MainViewModel : ViewModel() {
     private val _recommend = MutableLiveData<MutableList<ItemsModel>>()
     val recommend :LiveData<MutableList<ItemsModel>> = _recommend
 
+    fun loadFiltered(id:String) {
+        val ref = firebaseDatabase.getReference("Items")
+        val query = ref.orderByChild("categoryId").equalTo(id)
+        query.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists = mutableListOf<ItemsModel>()
+                for (child in snapshot.children) {
+                    val item = child.getValue(ItemsModel::class.java)
+                    if (item != null) lists.add(item)
+                }
+                _recommend.postValue(lists) // Sử dụng postValue nếu không ở main thread
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("Firebase", "Failed to load recommended: ${error.message}")
+            }
+
+        })
+    }
 
     fun loadRecommend() {
         val ref = firebaseDatabase.getReference("Items")

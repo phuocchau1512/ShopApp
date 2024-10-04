@@ -10,7 +10,7 @@ import com.example.shopapp.activity.DetailActivity
 import com.example.shopapp.databinding.ViewholderRecommendedBinding
 import com.example.shopapp.model.ItemsModel
 
-class RecommendedAdapter(private val items: MutableList<ItemsModel>) : RecyclerView.Adapter<RecommendedAdapter.ViewHolder>() {
+class ListItemsAdapter(private val items: MutableList<ItemsModel>) : RecyclerView.Adapter<ListItemsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ViewholderRecommendedBinding.inflate(LayoutInflater.from(parent.context),parent,false)

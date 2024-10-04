@@ -22,4 +22,14 @@
     <string name="rating_image">rating image</string>
     <string name="buy_now">Buy Now</string>
     <string name="cart_button">cart button</string>
+    <string name="my_cart">My Cart</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="total">Total</string>
+    <string name="your_cart_is_empty">Your Cart is Empty</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="cash">Cash</string>
+    <string name="cash_describe">Pay Cash When the medicine arrives\nat the destination</string>
+    <string name="bank_transfer">Bank Transfer</string>
+    <string name="pay_with_card">Pay with Card</string>
+    <string name="check_out">Check out</string>
 </resources>
